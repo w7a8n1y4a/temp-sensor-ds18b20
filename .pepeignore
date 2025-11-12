@@ -1,0 +1,7 @@
+.git
+.gitignore
+.pepeignore
+env_example.json
+schema_example.json
+readme.md
+LICENSE
