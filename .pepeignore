@@ -5,3 +5,4 @@ env_example.json
 schema_example.json
 readme.md
 LICENSE
+pymakr.conf
