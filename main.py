@@ -29,6 +29,7 @@ def output_handler(client: PepeunitClient):
             ds_sensor.convert_temp()
             current_temp = ds_sensor.read_temp(rom)
             client.publish_to_topics('current_temp/pepeunit', str(current_temp))
+            client.logger.debug('current_temp: ' + str(current_temp), file_only=True)
         except Exception as e:
             client.logger.error('Temp read error: ' + str(e))
         finally:
