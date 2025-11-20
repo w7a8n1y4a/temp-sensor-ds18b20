@@ -1,28 +1,18 @@
-# Wifi Temp Sensor
+# WiFi Temp Sensor ds18b20
 
-## Description
-- Отправляет значения датчика температуры
+Parameter | Implementation
+-- | --
+Discription | Отправляет значения датчика температуры
+Lang | `Micropython`
+Hardware | `esp8266`, `ds18b20`, `1х резистор 4.7кОм`, `wires`
+Firmware | [ESP8266_GENERIC-v1.26.1-PEPEUNIT-v0.10.0.bin](https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/43/download)
+Stack | `pepeunit_micropython_client`
 
-## Software platform
-- [ESP8266_GENERIC-v1.26.1-PEPEUNIT-v0.10.0.bin](https://micropython.org/download/ESP8266_GENERIC/)
-
-## Firmware format
-Интерпритируемый
-
-## Hardware platform
-- `esp8266` (требуется >= `1МБ` `flash` памяти)
-
-## Required physical components
-- микроконтроллер `esp8266`
-- датчик температуры `DS18B20`
-- `1х` резистор `4.7кОм`
-- провода
-
-## Operating Scheme
+## Schematic Diagram
 ![img](https://i.ibb.co/PcjGvXQ/wifi-temp-sensor.png)
 
 ## Physical IO
-- `machine.Pin([client.settings.DS18B20_PIN_NUM])` настроен на получение цифрового значения температуры от датчика `DS18B20`
+- `machine.Pin([client.settings.DS18B20_PIN_NUM])` настроен на получение цифрового значения температуры от датчика `ds18b20`
  
 ## env_example.json
 

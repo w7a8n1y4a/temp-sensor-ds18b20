@@ -1,0 +1,35 @@
+[general]
+name = "WiFi Temp Sensor ds18b20"
+version = "0.0.0"
+description = "Отправляет в топик current_temp/pepeunit значения датчика температуры ds18b20"
+authors = [
+    {name = "Ivan Serebrennikov", email = "admin@silberworks.com"}
+]
+license = {text = "AGPL v3 License"}
+language = "Micropython"
+stack = ["pepeunit_micropython_client"]
+hardware = ["esp8266", "ds18b20", "резистор 4.7кОм", "wires"]
+firmware = "https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/43/download"
+
+[images]
+schema = "https://i.ibb.co/PcjGvXQ/wifi-temp-sensor.png"
+
+[physical_io]
+client.settings.DS18B20_PIN_NUM = "Цифровое значение температуры от датчика ds18b20"
+
+[env_description]
+WIFI_SSID = "Имя сети WiFi"
+WIFI_PASS = "Пароль от сети WiFi"
+PUBLISH_SEND_INTERVAL = "Частота публикации данных в current_temp/pepeunit (сек)"
+DS18B20_PIN_NUM = "Номер пина для датчика ds18b20"
+
+[topic_assignment]
+"current_temp/pepeunit" = "Текущая температура в текстовом формате (например, 27.5)"
+
+[work_algorithm]
+steps = [
+  "Подключение к WiFi",
+  "Инициализация датчика ds18b20",
+  "Подключение к MQTT Брокеру",
+  "Каждые PUBLISH_SEND_INTERVAL секунд публикуются сообщения в current_temp/pepeunit"
+]
