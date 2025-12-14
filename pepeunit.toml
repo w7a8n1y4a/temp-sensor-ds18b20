@@ -1,30 +1,33 @@
 [general]
 name = "WiFi Temp Sensor ds18b20"
-version = "0.0.0"
 description = "Отправляет в топик current_temp/pepeunit значения датчика температуры ds18b20"
+language = "Micropython"
+hardware = ["esp8266", "ds18b20", "резистор 4.7кОм", "wires"]
+firmware = [
+  {name = "ESP8266_GENERIC-v1.26.1-PEPEUNIT-v1.0.0.bin", link = "https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/51/download"}
+]
+stack = ["pepeunit_micropython_client"]
+version = "1.0.0"
+license = "AGPL v3 License"
 authors = [
     {name = "Ivan Serebrennikov", email = "admin@silberworks.com"}
 ]
-license = {text = "AGPL v3 License"}
-language = "Micropython"
-stack = ["pepeunit_micropython_client"]
-hardware = ["esp8266", "ds18b20", "резистор 4.7кОм", "wires"]
-firmware = "https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/43/download"
+
 
 [images]
 schema = "https://i.ibb.co/PcjGvXQ/wifi-temp-sensor.png"
 
 [physical_io]
-client.settings.DS18B20_PIN_NUM = "Цифровое значение температуры от датчика ds18b20"
+"client.settings.DS18B20_PIN_NUM" = "Цифровое значение температуры от датчика `ds18b20`"
 
 [env_description]
 WIFI_SSID = "Имя сети WiFi"
 WIFI_PASS = "Пароль от сети WiFi"
-PUBLISH_SEND_INTERVAL = "Частота публикации данных в current_temp/pepeunit (сек)"
-DS18B20_PIN_NUM = "Номер пина для датчика ds18b20"
+PUBLISH_SEND_INTERVAL = "Частота публикации данных в `current_temp/pepeunit` в секундах"
+DS18B20_PIN_NUM = "Номер пина для датчика `ds18b20`"
 
 [topic_assignment]
-"current_temp/pepeunit" = "Текущая температура в текстовом формате (например, 27.5)"
+"current_temp/pepeunit" = "Текущая температура в текстовом формате (например, `27.5`)"
 
 [work_algorithm]
 steps = [
@@ -32,4 +35,15 @@ steps = [
   "Инициализация датчика ds18b20",
   "Подключение к MQTT Брокеру",
   "Каждые PUBLISH_SEND_INTERVAL секунд публикуются сообщения в current_temp/pepeunit"
+]
+
+[installation]
+steps = [
+  "Установите образ `Micropython` указанный в `firmware` на `esp8266`, как это сделано в [руководстве](https://micropython.org/download/ESP8266_GENERIC/)",
+  "Создайте `Unit` в `Pepeunit`",
+  "Установите переменные окружения в `Pepeunit`",
+  "Скачайте архив c программой из `Pepeunit`",
+  "Распакуйте архив в директорию",
+  "Загрузите файлы из директории на физическое устройство, например командой: `ampy -p /dev/ttyUSB0 -b 115200 put ./ .`",
+  "Запустить устройство нажатием кнопки `reset`"
 ]

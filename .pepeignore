@@ -3,7 +3,7 @@
 .pepeignore
 env_example.json
 schema_example.json
-readme.md
+README.md
 LICENSE
 pymakr.conf
 pepeunit.toml
