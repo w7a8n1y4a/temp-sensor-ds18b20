@@ -13,7 +13,7 @@ Authors | Ivan Serebrennikov <admin@silberworks.com>
 
 ## Schema
 
-<div align="center"><img align="center" src="https://i.ibb.co/PcjGvXQ/wifi-temp-sensor.png"></div>
+<div align="center"><img align="center" src="https://minio.pepemoss.com/public-data/gif/hotkey_bublik.gif"></div>
 
 ## Physical IO
 
