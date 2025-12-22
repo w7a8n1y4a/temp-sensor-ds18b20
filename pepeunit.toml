@@ -15,7 +15,7 @@ authors = [
 
 
 [images]
-schema = "https://minio.pepemoss.com/public-data/gif/hotkey_bublik.gif"
+schema = "https://i.ibb.co/PcjGvXQ/wifi-temp-sensor.png"
 
 [physical_io]
 "client.settings.DS18B20_PIN_NUM" = "Цифровое значение температуры от датчика `ds18b20`"
