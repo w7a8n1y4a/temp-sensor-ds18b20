@@ -2,12 +2,12 @@
 
 Parameter | Implementation
 -- | --
-Description | Отправляет в топик current_temp/pepeunit значения датчика температуры ds18b20
+Description | Отправляет в топик `current_temp/pepeunit` значения датчика температуры `ds18b20`
 Lang | `Micropython`
 Hardware | `esp8266`, `ds18b20`, `резистор 4.7кОм`, `wires`
-Firmware | [ESP8266_GENERIC-v1.26.1-PEPEUNIT-v1.0.0.bin](https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/51/download)
+Firmware | [ESP8266_GENERIC-v1.26.1-PEPEUNIT-v1.1.0.bin](https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/57/download)
 Stack | `pepeunit_micropython_client`
-Version | 0.0.0
+Version | 1.1.0
 License | AGPL v3 License
 Authors | Ivan Serebrennikov <admin@silberworks.com>
 
@@ -17,14 +17,14 @@ Authors | Ivan Serebrennikov <admin@silberworks.com>
 
 ## Physical IO
 
-- `client.settings.DS18B20_PIN_NUM` - Цифровое значение температуры от датчика `ds18b20`
+- `client.settings.PIN_DS18B20` - Цифровое значение температуры от датчика `ds18b20`
 
 ## Env variable assignment
 
-1. `WIFI_SSID` - Имя сети WiFi
-2. `WIFI_PASS` - Пароль от сети WiFi
-3. `PUBLISH_SEND_INTERVAL` - Частота публикации данных в `current_temp/pepeunit` в секундах
-4. `DS18B20_PIN_NUM` - Номер пина для датчика `ds18b20`
+1. `PIN_DS18B20` - Номер пина для датчика `ds18b20`
+2. `PUBLISH_SEND_INTERVAL` - Частота публикации данных в `current_temp/pepeunit` в миллисекундах
+3. `PUC_WIFI_SSID` - Имя сети `WiFi`
+4. `PUC_WIFI_PASS` - Пароль от сети `WiFi`
 
 ## Assignment of Device Topics
 
@@ -32,10 +32,10 @@ Authors | Ivan Serebrennikov <admin@silberworks.com>
 
 ## Work algorithm
 
-1. Подключение к WiFi
-2. Инициализация датчика ds18b20
-3. Подключение к MQTT Брокеру
-4. Каждые PUBLISH_SEND_INTERVAL секунд публикуются сообщения в current_temp/pepeunit
+1. Подключение к `WiFi`
+2. Подключение к `MQTT` Брокеру
+3. Инициализация датчика `ds18b20`
+4. Каждые `PUBLISH_SEND_INTERVAL` миллисекунд публикуется значение температуры в `current_temp/pepeunit`
 
 ## Installation
 

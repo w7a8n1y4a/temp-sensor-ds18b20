@@ -12,7 +12,7 @@ rom = None
 
 def init_sensor(client):
     global ds_sensor, rom
-    ds_sensor = ds18x20.DS18X20(onewire.OneWire(machine.Pin(int(client.settings.DS18B20_PIN_NUM))))
+    ds_sensor = ds18x20.DS18X20(onewire.OneWire(machine.Pin(int(client.settings.PIN_DS18B20))))
     roms = ds_sensor.scan()
     if not roms:
         client.logger.critical('DS18B20 not found on the bus')
@@ -24,7 +24,7 @@ def output_handler(client: PepeunitClient):
     global last_output_send_time
     current_time = client.time_manager.get_epoch_ms()
 
-    if (current_time - last_output_send_time) / 1000 >= client.settings.PUBLISH_SEND_INTERVAL:
+    if (current_time - last_output_send_time) >= client.settings.PUBLISH_SEND_INTERVAL:
         try:
             ds_sensor.convert_temp()
             current_temp = ds_sensor.read_temp(rom)
@@ -40,13 +40,7 @@ def input_handler(client: PepeunitClient, msg):
     return
 
 
-def main():
-    client = PepeunitClient(
-        env_file_path='/env.json',
-        schema_file_path='/schema.json',
-        log_file_path='/log.json',
-        sta=sta
-    )
+def main(client: PepeunitClient):
     client.set_mqtt_input_handler(input_handler)
     client.mqtt_client.connect()
     client.subscribe_all_schema_topics()
@@ -59,9 +53,9 @@ def main():
 
 if __name__ == '__main__':
     try:
-        main()
+        main(client)
+    except KeyboardInterrupt:
+        raise
     except Exception as e:
-        try:
-            print('Error:', str(e))
-        except Exception:
-            pass
+        client.logger.critical(f"Error with reset: {str(e)}", file_only=True)
+        client.restart_device()

@@ -1,8 +1,8 @@
 {
-    "DS18B20_PIN_NUM": 12,
-    "PUBLISH_SEND_INTERVAL": 10,
-    "WIFI_SSID": "ssid",
-    "WIFI_PASS": "password",
+    "PIN_DS18B20": 12,
+    "PUBLISH_SEND_INTERVAL": 10000,
+    "PUC_WIFI_SSID": "ssid",
+    "PUC_WIFI_PASS": "password",
     "PU_DOMAIN": "unit.example.com",
     "PU_HTTP_TYPE": "https",
     "PU_APP_PREFIX": "/pepeunit",
