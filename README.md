@@ -4,8 +4,8 @@ Parameter | Implementation
 -- | --
 Description | Отправляет в топик `current_temp/pepeunit` значения датчика температуры `ds18b20`
 Lang | `Micropython`
-Hardware | `esp8266`, `ds18b20`, `резистор 4.7кОм`, `wires`
-Firmware | [ESP8266_GENERIC-v1.27.0-PEPEUNIT-v1.1.1.bin](https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/package_files/60/download)
+Hardware | `esp8266`, `esp32`, `esp32c3`, `esp32s3`, `ds18b20`, `резистор 4.7кОм`, `wires`
+Firmware | [RELEASE-1.1.1](https://git.pepemoss.com/pepe/pepeunit/libs/pepeunit_micropython_client/-/releases/1.1.1)
 Stack | `pepeunit_micropython_client`
 Version | 1.1.1
 License | AGPL v3 License
