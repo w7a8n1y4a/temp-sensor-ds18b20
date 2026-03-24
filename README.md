@@ -17,18 +17,24 @@ Authors | Ivan Serebrennikov <admin@silberworks.com>
 
 ## Physical IO
 
-- `client.settings.PIN_DS18B20` - Цифровое значение температуры от датчика `ds18b20`
+Key | Description
+-- | --
+`client.settings.PIN_DS18B20` | Цифровое значение температуры от датчика `ds18b20`
 
 ## Env variable assignment
 
-1. `PIN_DS18B20` - Номер пина для датчика `ds18b20`
-2. `PUBLISH_SEND_INTERVAL` - Частота публикации данных в `current_temp/pepeunit` в миллисекундах
-3. `PUC_WIFI_SSID` - Имя сети `WiFi`
-4. `PUC_WIFI_PASS` - Пароль от сети `WiFi`
+Variable | Description
+-- | --
+`PIN_DS18B20` | Номер пина для датчика `ds18b20`
+`PUBLISH_SEND_INTERVAL` | Частота публикации данных в `current_temp/pepeunit` в миллисекундах
+`PUC_WIFI_SSID` | Имя сети `WiFi`
+`PUC_WIFI_PASS` | Пароль от сети `WiFi`
 
 ## Assignment of Device Topics
 
-- `current_temp/pepeunit` - Текущая температура в текстовом формате (например, `27.5`)
+Topic | Description
+-- | --
+`current_temp/pepeunit` | Текущая температура в текстовом формате (например, `27.5`)
 
 ## Work algorithm
 
